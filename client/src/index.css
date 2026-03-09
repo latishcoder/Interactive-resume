@@ -1,0 +1,153 @@
+/* src/index.css — Global Styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design Tokens ───────────────────────────────────────── */
+:root {
+  --font-display: "DM Serif Display", serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* ── Base Styles ─────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-body);
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-800 transition-colors duration-300;
+    @apply dark:bg-slate-950 dark:text-slate-100;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-normal tracking-tight;
+  }
+
+  code, pre {
+    font-family: var(--font-mono);
+  }
+
+  ::selection {
+    @apply bg-primary-500/30 text-primary-900 dark:text-primary-100;
+  }
+
+  /* Smooth scroll offset for fixed navbar */
+  section[id] {
+    scroll-margin-top: 80px;
+  }
+}
+
+/* ── Custom Scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { @apply bg-slate-100 dark:bg-slate-900; }
+::-webkit-scrollbar-thumb { @apply bg-primary-400 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-primary-600; }
+
+/* ── Component Utilities ─────────────────────────────────── */
+@layer components {
+  .section-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl text-slate-900 dark:text-white mb-4;
+    font-family: var(--font-display);
+  }
+
+  .section-subtitle {
+    @apply text-slate-500 dark:text-slate-400 text-lg mb-12 max-w-2xl;
+  }
+
+  .card {
+    @apply bg-white dark:bg-slate-800/60 rounded-2xl shadow-sm 
+           border border-slate-200/60 dark:border-slate-700/40
+           backdrop-blur-sm transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply shadow-lg -translate-y-1;
+  }
+
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 text-white
+           px-6 py-3 rounded-xl font-medium transition-all duration-200
+           hover:shadow-lg hover:shadow-primary-500/25 active:scale-95;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary-500 text-primary-600 dark:text-primary-400
+           hover:bg-primary-500 hover:text-white px-6 py-3 rounded-xl
+           font-medium transition-all duration-200 active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800
+           px-4 py-2 rounded-lg transition-all duration-200;
+  }
+
+  .input {
+    @apply w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700
+           bg-white dark:bg-slate-800/60 text-slate-800 dark:text-slate-100
+           focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500
+           transition-all duration-200 placeholder-slate-400 dark:placeholder-slate-500;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5;
+  }
+
+  /* Progress bar for skills */
+  .skill-bar {
+    @apply h-2 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden;
+  }
+
+  .skill-bar-fill {
+    @apply h-full rounded-full bg-gradient-to-r from-primary-400 to-primary-600
+           transition-all duration-1000 ease-out;
+  }
+
+  /* Tag / badge */
+  .tag {
+    @apply text-xs font-medium px-3 py-1 rounded-full
+           bg-primary-100 text-primary-700
+           dark:bg-primary-900/40 dark:text-primary-300;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-500 to-accent-500 
+           bg-clip-text text-transparent;
+  }
+
+  /* Decorative divider */
+  .section-divider {
+    @apply w-16 h-1 rounded-full bg-gradient-to-r from-primary-400 to-accent-400 mb-6;
+  }
+}
+
+/* ── Animations ──────────────────────────────────────────── */
+@layer utilities {
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+}
+
+/* ── Frosted glass background effect ─────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background: rgba(15, 23, 42, 0.6);
+  border-color: rgba(255, 255, 255, 0.08);
+}
