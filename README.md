@@ -290,9 +290,9 @@ npm start
 
 ### Post-Deployment
 
-In your Render backend, update:
-```env
-CLIENT_URL=https://your-app.vercel.app
+## 🚀 Live Demo
+Frontend: https://interactive-resume-ruby.vercel.app  
+Backend API: https://interactive-resume-sgjq.onrender.com
 ```
 
 ---
