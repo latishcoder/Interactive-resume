@@ -1,7 +1,7 @@
 // src/components/sections/Education.js — Education section
 import React from "react";
 import { motion } from "framer-motion";
-import { FiBook, FiAward } from "react-icons/fi";
+import { FiBook,  } from "react-icons/fi";
 import useInView from "../common/useInView";
 
 export const Education = ({ educations }) => {
